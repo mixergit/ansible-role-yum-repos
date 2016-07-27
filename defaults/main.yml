@@ -5,6 +5,7 @@ yum_plugins:
   - { name: yum-fastestmirror, repo: ~ }
   - { name: yum-security,      repo: ~ }
   - { name: yum-priorities,    repo: ~ }
+  # yum-config-manager in yum-utils. we need it.
   - { name: yum-utils,         repo: ~ }
 
 # s: "removed" if you no needed.
@@ -15,4 +16,12 @@ yum_repositories:
   # - { s: "present", n: "http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el{{ ansible_distribution_major_version }}.rf.x86_64.rpm" }
   - { s: "present", n: "https://dev.mysql.com/get/mysql-community-release-el{{ ansible_distribution_major_version }}-5.noarch.rpm" }
   - { s: "present", n: "http://nginx.org/packages/centos/{{ ansible_distribution_major_version }}/noarch/RPMS/nginx-release-centos-{{ ansible_distribution_major_version }}-0.el{{ ansible_distribution_major_version }}.ngx.noarch.rpm" }
+
+yum_disables:
+  - { d: "disable", s: "remi" }
+  - { d: "disable", s: "remi-safe" }
+  - { d: "disable", s: "mysql-connectors-community" }
+  - { d: "disable", s: "mysql-tools-community" }
+  - { d: "disable", s: "mysql56-community" }
+  - { d: "disable", s: "nginx" }
 

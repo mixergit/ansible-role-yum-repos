@@ -1,7 +1,7 @@
 ---
 # tasks file for ansible-role-yum-repos
 
-- name: plugin install
+- name: install plugins
   yum:
     name: "{{ item.name }}"
     state: present
@@ -19,5 +19,10 @@
     name:  "{{ item.n }}"
     state: "{{ item.s | default('present') }}"
   with_items: "{{ yum_repositories }}"
+  tags: [yum-repos]
+
+- name: disable repository
+  command: "yum-config-manager --{{ item.d | default('disable') }} {{ item.s }}"
+  with_items: "{{ yum_disables }}"
   tags: [yum-repos]
 
