@@ -24,5 +24,6 @@
 - name: disable repository
   command: "yum-config-manager --{{ item.d | default('disable') }} {{ item.s }}"
   with_items: "{{ yum_disables }}"
+  changed_when: false
   tags: [yum-repos]
 
