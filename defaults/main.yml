@@ -3,7 +3,7 @@
 
 yum_plugins:
   #- { name: yum-fastestmirror, repo: ~ }
-  - { name: yum-security,      repo: ~ }
+  - { name: yum-plugin-security,      repo: ~ }
   # - { name: yum-priorities,    repo: ~ }
   # yum-config-manager in yum-utils. we need it.
   - { name: yum-utils,         repo: ~ }
