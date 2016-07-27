@@ -30,7 +30,7 @@ script:
 
   # pre check
   - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm yum repolist'
-  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ls -l /etc/yum.repo.d/'
+  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ls -l /etc/yum.repos.d/'
 
   # Ansible syntax check.
   - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ansible-playbook /etc/ansible/roles/role_test/tests/test.yml --syntax-check'
@@ -40,7 +40,7 @@ script:
 
   # post check
   - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm yum repolist'
-  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ls -l /etc/yum.repo.d/'
+  - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ls -l /etc/yum.repos.d/'
 
   # - 'env TARGET_CONTAINER_ID="$(cat ${container_id})" bundle exec rspec'
 
