@@ -1,2 +1,5 @@
 ---
 # defaults file for ansible-role-yum-repos
+
+yum_repositories:
+  - { n: epel-release }

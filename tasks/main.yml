@@ -4,5 +4,12 @@
 - name: install CentOS-Base.repo only EC2
   copy: src=centos-base.repo dest=/etc/yum.repos.d/CentOS-Base.repo mode=0644 owner=root group=root force=no
   when: "ansible_distribution == 'Amazon'"
-  tags: [yum.repo]
+  tags: [yum-repos]
+
+- name: install repository
+  yum:
+    name:  "{{ item.n }}"
+    state: "{{ item.s | default('present') }}"
+  with_items: "{{ yum_repositories }}"
+  tags: [yum-repos]
 
