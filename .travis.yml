@@ -42,7 +42,7 @@ script:
   - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm yum repolist'
   - 'sudo docker exec --tty "$(cat ${container_id})" env TERM=xterm ls -l /etc/yum.repos.d/'
 
-  # - 'env TARGET_CONTAINER_ID="$(cat ${container_id})" bundle exec rspec'
+  - 'env TARGET_CONTAINER_ID="$(cat ${container_id})" bundle exec rspec'
 
   # Test role idempotence.
   - >
