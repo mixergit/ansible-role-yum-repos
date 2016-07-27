@@ -1,6 +1,14 @@
 ---
 # tasks file for ansible-role-yum-repos
 
+- name: plugin install
+  yum:
+    name: "{{ item.name }}"
+    state: present
+    enablerepo: "{{ item.repo | default('') }}"
+  with_items: "{{ yum_plugins }}"
+  tags: [yum-repos]
+
 - name: install CentOS-Base.repo only EC2
   copy: src=centos-base.repo dest=/etc/yum.repos.d/CentOS-Base.repo mode=0644 owner=root group=root force=no
   when: "ansible_distribution == 'Amazon'"
