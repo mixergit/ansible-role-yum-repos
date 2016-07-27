@@ -3,3 +3,4 @@
 
 yum_repositories:
   - { n: epel-release }
+  - { n: "http://rpms.famillecollet.com/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm" }
