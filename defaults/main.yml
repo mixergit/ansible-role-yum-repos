@@ -1,6 +1,11 @@
 ---
 # defaults file for ansible-role-yum-repos
 
+# s: "removed" if you no needed.
 yum_repositories:
-  - { n: epel-release }
-  - { n: "http://rpms.famillecollet.com/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm" }
+  - { s: "present", n: epel-release }
+  - { s: "present", n: "http://rpms.famillecollet.com/enterprise/remi-release-{{ ansible_distribution_major_version }}.rpm" }
+  - { s: "present", n: "http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el{{ ansible_distribution_major_version }}.rf.x86_64.rpm" }
+  - { s: "present", n: "https://dev.mysql.com/get/mysql-community-release-el{{ ansible_distribution_major_version }}-5.noarch.rpm" }
+  - { s: "present", n: "http://nginx.org/packages/centos/{{ ansible_distribution_major_version }}/noarch/RPMS/nginx-release-centos-{{ ansible_distribution_major_version }}-0.el{{ ansible_distribution_major_version }}.ngx.noarch.rpm" }
+
