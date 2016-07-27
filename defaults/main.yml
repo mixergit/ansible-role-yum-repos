@@ -2,11 +2,11 @@
 # defaults file for ansible-role-yum-repos
 
 yum_plugins:
-  - { name: yum-fastestmirror, repo: ~ }
-  - { name: yum-plugin-security,      repo: ~ }
-  - { name: yum-priorities,    repo: ~ }
+  - { name: yum-fastestmirror,   repo: ~ }
+  - { name: yum-plugin-security, repo: ~ }
+  - { name: yum-priorities,      repo: ~ }
   # yum-config-manager in yum-utils. we need it.
-  - { name: yum-utils,         repo: ~ }
+  - { name: yum-utils,           repo: ~ }
 
 # s: "removed" if you no needed.
 yum_repositories:
